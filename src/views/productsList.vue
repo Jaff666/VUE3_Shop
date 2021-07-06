@@ -7,49 +7,45 @@
             <div class="products-list">
               <p class="card-text">{{product.productDescription}} <br/><br/> Cena: {{product.productPrice}} zł</p>
               <div class="buttons">
-                <button @click="addItem">
+                <button @click="addItemToCart(product.id,++product.productCounter)">
                   Add to cart
                 </button>
+                <button @click="removeItemFromCart(product.id,product.productCounter--)">
+                  Delete from cart
+                </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-  </div>
 </template>
 
 <script>
-import { products} from "../assets/products";
+import { products} from "../store/products";
 
 export default {
   name: 'Home',
+  data: () => {
+    return {
+      cart: []
+    };
+  },
   setup() {
     return {
       products
     }
   },
-  computed: {
-    fullInfo() {
-      return `${this.product.productProducer} ${this.product.productName}`;
-    }
-  },
   methods: {
-    addItem() {
-
-      this.counter++;
+    addItemToCart(productId,productCounter) {
+      this.cart.push(productId,productCounter);
+      console.log(this.cart);
     },
-  },
-  mounted() {
-    if(localStorage.counter){
-      this.counter=localStorage.counter
-    }
-  },
-  watch: {
-    counter(newCounter) {
-      localStorage.counter = newCounter;
-    }
-  },
-}
+    removeItemFromCart(productId) {
+      this.cart.splice(this.cart.indexOf(productId), 2);
+      console.log(this.cart);
+    },
+  }
+};
 </script>
 
 <style>

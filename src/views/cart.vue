@@ -1,14 +1,13 @@
 <template>
-<div>
-<h1>Tu będzie koszyk</h1>
-</div>
+  <div>
+    <h1>Your Cart:</h1>
+    <div class="products">
+      </div>
+  </div>
 </template>
 
 <script>
 
-export default {
-
-};
 </script>
 <style>
 
