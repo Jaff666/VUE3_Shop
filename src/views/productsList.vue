@@ -7,7 +7,7 @@
             <div class="products-list">
               <p class="card-text">{{product.productDescription}} <br/><br/> Price: {{product.productPrice}} $</p>
               <div class="buttons">
-                <button @click="addItemToCart(product.id,product.productName,product.productPrice)">
+                <button @click="addItemToCart(product.id,product.productImg,product.productName,product.productPrice)">
                   Add to cart
                 </button>
                 </div>
@@ -27,16 +27,17 @@ export default {
       cart: []
     };
   },
+
   setup() {
     return {
       products
     }
   },
   methods: {
-    addItemToCart(productId,productName,productPrice) {
-      this.cart.push({productID:productId,productName:productName,productPrice:productPrice});
+    addItemToCart(productId,productImg,productName,productPrice) {
+      this.cart.push({productID:productId,productImg:productImg,productName:productName,productPrice:productPrice});
       console.log(this.cart);
-      localStorage.setItem('productsInCart', JSON.stringify(this.cart));
+      sessionStorage.setItem('productsInCart', JSON.stringify(this.cart));
     },
     removeItemFromCart(productId) {
       this.cart.splice(this.cart.indexOf(productId), 2);

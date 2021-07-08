@@ -6,6 +6,6 @@ export default createStore({
   mutations: {},
   actions: {},
   modules: {
-    User: ProductModule
+    User: ProductModule,
   }
 })

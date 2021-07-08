@@ -9,19 +9,19 @@
         Also visit my Github account to see my other projects!<br/>
       </p>
       <div class="link1">
-        <a href="https://www.youtube.com/watch?v=K0_pkOPRu7E" class="btn btn-primary1">Visit Youtube</a> <br/>
+        <a href="https://www.youtube.com/watch?v=K0_pkOPRu7E" class="btn btn-primary1" target="_blank">Visit Youtube</a> <br/>
       </div>
       <div class="link2">
-        <a href="https://www.youtube.com/watch?v=ZqgiuPt5QZo" class="btn btn-primary1">Visit Youtube</a> <br/>
+        <a href="https://www.youtube.com/watch?v=ZqgiuPt5QZo" class="btn btn-primary1" target="_blank">Visit Youtube</a> <br/>
       </div>
       <div class="link3">
-        <a href="https://www.youtube.com/watch?v=mLqCwMza0So" class="btn btn-primary1">Visit Youtube</a> <br/>
+        <a href="https://www.youtube.com/watch?v=mLqCwMza0So" class="btn btn-primary1" target="_blank">Visit Youtube</a> <br/>
       </div>
       <div class="link4">
-        <a href="https://google.com" class="btn btn-primary2">Vue3 documentation</a>
+        <a href="https://v3.vuejs.org/" class="btn btn-primary2" target="_blank">Vue3 documentation</a>
       </div>
       <div class="link5">
-        <a href="https://google.com" class="btn btn-primary3">Visit GitHub</a>
+        <a href="https://github.com/Jaff666?tab=repositories" class="btn btn-primary3" target="_blank">Visit GitHub</a>
       </div>
     </div>
   </div>
