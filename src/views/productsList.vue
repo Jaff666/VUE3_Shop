@@ -24,7 +24,7 @@ export default {
   name: 'Home',
   data: () => {
     return {
-      cart: []
+      cart: [],
     };
   },
 
@@ -35,8 +35,9 @@ export default {
   },
   methods: {
     addItemToCart(productId,productImg,productName,productPrice) {
-      this.cart.push({productID:productId,productImg:productImg,productName:productName,productPrice:productPrice});
-      console.log(this.cart);
+      this.cart = sessionStorage.getItem('productsInCart');
+      this.cart = this.cart ? JSON.parse(this.cart) : [];
+      this.cart.push({productID:productId,productImg:productImg,productName:productName,productPrice:productPrice});console.log(this.cart);
       sessionStorage.setItem('productsInCart', JSON.stringify(this.cart));
     },
     removeItemFromCart(productId) {

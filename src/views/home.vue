@@ -1,4 +1,5 @@
 <template>
+  <br/> <br/> <br/>
   <div class="card text-center mx-auto" style="width: 45rem">
     <div class="card-body">
       <h5 class="card-title"><strong>About me</strong></h5>
