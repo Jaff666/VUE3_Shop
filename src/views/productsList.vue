@@ -1,24 +1,35 @@
 <template>
   <div class="shop">
-        <div class="card mx-auto" style="width: 18rem;" v-for="product in products" :to="{ name: 'ProductList', params: { productId: product.id } }" :key="product.id">
-          <img v-bind:src="product.productImg" class="card-img-top" style="width: 285px; height: 275px" alt=""/>
-          <div class="card-body">
-            <strong class="card-title">{{ product.productName }}</strong>
-            <div class="products-list">
-              <p class="card-text">{{product.productDescription}} <br/><br/> Price: {{product.productPrice}} $</p>
-              <div class="buttons">
-                <button @click="addItemToCart(product.id,product.productImg,product.productName,product.productPrice)">
-                  Add to cart
-                </button>
-                </div>
-              </div>
-            </div>
+    <div
+        class="card mx-auto"
+        style="width: 18rem;"
+        v-for="product in products"
+        :to="{ name: 'ProductList', params: { productId: product.id } }"
+        :key="product.id">
+      <img
+          v-bind:src="product.productImg"
+          class="card-img-top"
+          style="width: 285px;
+          height: 275px"
+          alt=""
+      />
+      <div class="card-body">
+        <strong class="card-title">{{ product.productName }}</strong>
+        <div class="products-list">
+          <p class="card-text">{{ product.productDescription }} <br/><br/> Price: {{ product.productPrice }} $</p>
+          <div class="buttons">
+            <button @click="addItemToCart(product)">
+              Add to cart
+            </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import { products} from "../store/products";
+import { products} from "../store/mock_data/products";
 
 export default {
   name: 'Home',
@@ -34,15 +45,11 @@ export default {
     }
   },
   methods: {
-    addItemToCart(productId,productImg,productName,productPrice) {
+    addItemToCart(product) {
       this.cart = sessionStorage.getItem('productsInCart');
       this.cart = this.cart ? JSON.parse(this.cart) : [];
-      this.cart.push({productID:productId,productImg:productImg,productName:productName,productPrice:productPrice});console.log(this.cart);
+      this.cart.push(product);
       sessionStorage.setItem('productsInCart', JSON.stringify(this.cart));
-    },
-    removeItemFromCart(productId) {
-      this.cart.splice(this.cart.indexOf(productId), 2);
-      console.log(this.cart);
     },
   }
 };

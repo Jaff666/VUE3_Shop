@@ -2,12 +2,13 @@
   <div>
     <h1>Your cart:</h1>
   </div>
-  <div class="card mx-auto" style="width: 18rem;" v-for="cart in data" :to="{ name: 'CartList', params: { cartID: cart.productID } }" :key="cart.productID">
+  <div class="card mx-auto" style="width: 18rem;" v-for="cart in data"
+       :to="{ name: 'CartList', params: { cartID: cart.productId } }" :key="cart.productId">
     <div class="card-body">
-      <img  v-bind:src="cart.productImg" class="card-img-top"  style="width: 150px; height: 175px" alt="...">
-      <h5 class="card-title" v-if="data[0]!==null">{{cart.productName}}</h5>
-      <p class="card-text" v-if="data[0]!==null"> Price: {{cart.productPrice}} $ </p>
-      <button class="button1" @click="removeItemFromCart(cart.productID)">
+      <img :src="cart.productImg" class="card-img-top" style="width: 150px; height: 175px" alt="...">
+      <h5 class="card-title" v-if="data[0]!==null">{{ cart.productName }}</h5>
+      <p class="card-text" v-if="data[0]!==null"> Price: {{ cart.productPrice }} $ </p>
+      <button class="button1" @click="removeItemFromCart(cart.productId)">
         Remove from cart
       </button>
     </div>
@@ -33,7 +34,7 @@ export default {
       location.reload();
     },
     removeItemFromCart(productId) {
-      let removeIndex = this.data.map(function(item) { return item.productID; }).indexOf(productId);
+      let removeIndex = this.data.map((item) => item.productId).indexOf(productId);
       this.data.splice(removeIndex,1);
       sessionStorage.setItem('productsInCart', JSON.stringify(this.data));
       window.location.reload();
@@ -41,9 +42,7 @@ export default {
   },
   computed: {
     totalSum() {
-      return this.data.reduce(function (prev, cur) {
-        return prev + cur.productPrice;
-      }, 0);
+      return this.data.reduce( (prev, cur) => prev + cur.productPrice, 0);
     }
   }
 };
